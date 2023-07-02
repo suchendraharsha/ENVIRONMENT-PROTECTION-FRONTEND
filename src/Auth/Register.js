@@ -1,11 +1,16 @@
 import React,{useState} from 'react'
-import Layout from '../components/layout/Layout';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import "../../styles/AuthStyles.css";
+import "../styles/AuthStyles.css";
+import Layout from '../layout/Layout';
+
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Register = () => {
+
+  const form = useRef();
 
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
@@ -18,7 +23,7 @@ const Register = () => {
     const handleSubmit = async(e)=>{
         e.preventDefault();
         try{
-            const res = await axios.post("/api/v1/auth/register", {
+            const res = await axios.post("http://localhost:3500/api/v1/auth/register", {
                 name,
                 email,
                 password,
@@ -33,6 +38,12 @@ const Register = () => {
             else{
                 toast.error(res.data.message);
             }
+            emailjs.sendForm('service_pgj8xtx', 'template_3rw202q', form.current, 'MUKPIvmtkFi1zw3AG')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
         } catch(err){
             console.log(err);
             toast.error("something went wrong");
@@ -41,9 +52,9 @@ const Register = () => {
     }
 
   return (
-    <Layout title="register - ecommerce-app">
+    <div>
         <div className="form-container ">
-        <form onSubmit={handleSubmit}>
+        <form ref={form} onSubmit={handleSubmit}>
           <h4 className="title">REGISTER FORM</h4>
           <div className="mb-3">
             <input
@@ -117,7 +128,7 @@ const Register = () => {
           </button>
         </form>
       </div>
-    </Layout>
+    </div>
   )
 }
 

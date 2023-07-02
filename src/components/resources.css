@@ -1,0 +1,377 @@
+:root {
+  --primary-color: #009cff;
+  --secondary-color: #F0FBFF;
+  --accent-color:#D3FBCC;
+}
+.resources-page {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  .slider-section {
+    margin: 30px auto;
+    width: 90%;
+    height: 60vh; /* Adjust the height as desired */
+    /* Add slider styles here */
+  }
+  .slider-section1{
+    display:none;
+  }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .who-section {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  .who-description {
+    color: var(--primary-color);
+    width: 40%;
+    /* Add styles for the WHO description */
+  }
+
+  .who-description p{
+    color: var(--secondary-color);
+  }
+  
+  .who-image {
+    width: 60%;
+    overflow: hidden;
+    object-fit: cover;
+    /* Add styles for the WHO image */
+  }
+
+  .who-image img{
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+  }
+  
+  .vaccination-section {
+    margin-top: 40px;
+  }
+  
+  .vaccination-heading {
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    color: var(--primary-color);
+    /* Add styles for the vaccination heading */
+  }
+  
+  .vaccination-video {
+    width: 80%;
+    margin: 10px auto;
+    /* Add styles for the vaccination video */
+  }
+
+  .vaccination-video iframe{
+    width: 100%;
+    height: 400px;
+  }
+  
+  .disease-prevention-section {
+    display: flex;
+    margin-top: 40px;
+    gap: 30px;
+  }
+  
+  .disease-prevention-gif {
+    width: 60%;
+    /* Add styles for the disease prevention GIF */
+  }
+
+  .disease-prevention-gif img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .disease-prevention-description {
+    color: var(--secondary-color);
+    width: 40%;
+    /* Add styles for the disease prevention description */
+  }
+  
+  .yoga-section {
+    display: flex;
+    margin-top: 40px;
+    gap: 30px;
+  }
+  
+  .yoga-left-image,
+  .yoga-right-image {
+    width: 30%;
+    /* Add styles for the yoga images */
+  }
+
+  .yoga-left-image img,
+  .yoga-right-image img {
+    width: 100%;
+    height: 270px;
+  }
+
+  .yoga-content h2{
+    color: var(--primary-color);
+  }
+  
+  .yoga-content {
+    color: var(--secondary-color);
+    width: 40%;
+    text-align: center;
+    /* Add styles for the yoga content */
+  }
+
+  .yoga-video{
+    width: 70%;
+    margin: 30px auto;
+  }
+
+  .yoga-video iframe{
+    width: 100%;
+    height: 400px;
+  }
+  
+  .download-cards-section {
+    margin-top: 40px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: 30%;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--accent-color);
+    /* Add styles for the download cards */
+  }
+  
+  .card:hover .card-overlay {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    /* Add styles for the card image */
+  }
+  
+  .card-overlay {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 100px;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 70%;
+    color: #fff;
+    transform: scale(0);
+    opacity: 1;
+    transition: all 0.3s;
+  }
+  
+  .card:hover .card-overlay {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .card-overlay-icon {
+    margin-left: 20px;
+    margin-top: -25px;
+  }
+  
+  
+  .faq-section {
+    margin-top: 20px;
+  }
+  
+  .faq-question {
+    margin-bottom: 20px;
+  }
+  
+  .faq-question-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    padding: 12px;
+    border-radius: 4px;
+  }
+
+  .faq-question-header h3{
+    font-size: 20px;
+    color: black;
+  }
+  
+  .faq-question-header:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .faq-question-header h3 {
+    margin: 0;
+  }
+  
+  .faq-answer {
+    background-color: #f8f8f8;
+    padding: 12px;
+    border-radius: 4px;
+    color: #000;
+  }
+  
+  .faq-arrow {
+    font-size: 16px;
+    transition: transform 0.2s;
+    color: #000;
+  }
+  
+  .faq-question-header.expanded .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-heading{
+    font-size: 30px;
+  }
+
+  .download-heading{
+    font-size: 30px;
+    text-align: center;
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 768px) {
+    .slider-section1{
+      display: block;
+    }
+    .slider-section{
+      display: none;
+    }
+    .download-heading{
+      font-size: 24px;
+    }
+    .faq-heading{
+      font-size: 24px;
+    }
+    .resources-page {
+      width: 100%;
+      padding: 8px;
+    }
+    
+    .who-section {
+      display: block;
+      width: 100%;
+    }
+
+    .who-section h2{
+      text-align: center;
+    }
+    
+    .who-description {
+      width: 100%;
+      padding: 8px;
+    }
+    
+    .who-image {
+      width: 100%;
+      margin-top: 18px;
+    }
+  
+    .who-image img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    .vaccination-heading {
+      font-size: 40px;
+    }
+    
+    .vaccination-video {
+      width: 100%;
+      margin: 10px auto;
+      padding: 8px;
+    }
+  
+    .vaccination-video iframe{
+      width: 100%;
+      height: 400px;
+    }
+    
+    .disease-prevention-section {
+      display: block;
+    }
+    
+    .disease-prevention-gif {
+      width: 100%;
+      padding: 8px;
+    }
+    
+    .disease-prevention-description {
+      width: 100%;
+      font-size: 18px;
+      padding: 8px;
+      margin-top: 10px;
+    }
+    
+    .yoga-section {
+      display: block;
+    }
+    
+    .yoga-left-image,
+    .yoga-right-image {
+      width: 100%;
+    }
+    
+    .yoga-content {
+      width: 100%;
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 8px;
+    }
+  
+    .yoga-video{
+      width: 100%;
+      padding: 8px;
+    }
+    
+    .card-container {
+      display: block;
+      padding: 8px;
+    }
+    
+    .card {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+  }

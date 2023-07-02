@@ -3,7 +3,7 @@ import Layout from '../components/layout/Layout.js';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import "../../styles/AuthStyles.css";
+import "../styles/AuthStyles.css";
 import { useAuth } from "../context/Auth.js";
 
 const ForgotPassword = () => {
@@ -18,7 +18,7 @@ const ForgotPassword = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const res = await axios.post("/api/v1/auth/forgot-password", {
+        const res = await axios.post("http://localhost:3500/api/v1/auth/forgot-password", {
           email,
           newPassword,
           answer,
@@ -36,7 +36,7 @@ const ForgotPassword = () => {
     };
 
   return (
-    <Layout title="forgot-password">
+    <div >
            <div className="form-container ">
         <form onSubmit={handleSubmit}>
           <h4 className="title">RESET PASSWORD</h4>
@@ -80,7 +80,7 @@ const ForgotPassword = () => {
           </button>
         </form>
       </div>
-    </Layout>
+    </div>
   )
 }
 

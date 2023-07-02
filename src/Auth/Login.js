@@ -1,12 +1,26 @@
 import React, { useState } from "react";
-import Layout from '../components/layout/Layout.js';
+/* import Layout from '../layout/Layout'; */
 import axios from "axios";
 import { useNavigate,useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
-import "../../styles/AuthStyles.css";
+/* import "../styles/AuthStyles.css"; */
 import { useAuth } from "../context/Auth.js";
+import Header from "../layout/Header";
+import Navbar from "../layout/Navbar";
+
+
+
 
 const Login = () => {
+
+ 
+
+  const regStyles ={
+    color:"black",
+    marginTop:"10px",
+    textAlign:"center",
+    cursor:"pointer",
+  }
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +33,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/login", {
+      const res = await axios.post("http://localhost:3500/api/v1/auth/login", {
         email,
         password,
       });
@@ -31,6 +45,7 @@ const Login = () => {
             token:res.data.token,
         });
         localStorage.setItem('auth',JSON.stringify(res.data));
+        
         navigate(location.state ||"/");
       } else {
         toast.error(res.data.message);
@@ -42,7 +57,10 @@ const Login = () => {
   };
 
   return (
-    <Layout title="Register - Ecommer App">
+    <>
+    <Header/>
+    <Navbar/>
+    <div className="cont">
       <div className="form-container ">
         <form onSubmit={handleSubmit}>
           <h4 className="title">LOGIN FORM</h4>
@@ -50,6 +68,7 @@ const Login = () => {
           <div className="mb-3">
             <input
               type="email"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
@@ -78,9 +97,11 @@ const Login = () => {
           <button type="submit" className="btn btn-primary">
             LOGIN
           </button>
+          <p style={regStyles} onClick={()=>navigate("/register")}>did not register yet?..</p>
         </form>
       </div>
-    </Layout>
+      </div>
+      </>
   )
 }
 
