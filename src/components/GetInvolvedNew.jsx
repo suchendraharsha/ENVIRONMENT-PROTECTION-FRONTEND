@@ -24,7 +24,7 @@ const GetInvolvedNew = () => {
 
     const getAllActivities =async()=>{
       try{
-          const res = await axios.get("http://localhost:3500/api/v1/activity/activity");
+          const res = await axios.get("https://envinormentprotectionbackend.onrender.com/api/v1/activity/activity");
           setActivities(res?.data?.activity);
           console.log(activities);            
       }catch(error){
@@ -41,7 +41,7 @@ const GetInvolvedNew = () => {
           productData.append("email", email);
           productData.append("contact", contact);
       try{
-          const res = await axios.post("http://localhost:3500/api/v1/activity/activity-register",productData);
+          const res = await axios.post("https://envinormentprotectionbackend.onrender.com/api/v1/activity/activity-register",productData);
           if(res.data.success){
               console.log(res.data.message);
           }

@@ -19,7 +19,7 @@ const Activity = () => {
 
     const getAllActivitie =async()=>{
         try{
-            const res = await axios.get("http://localhost:3500/api/v1/activity/all-activity");
+            const res = await axios.get("https://envinormentprotectionbackend.onrender.com/api/v1/activity/all-activity");
             setAllActivities(res?.data);
             /* console.log(auth);  */           
         }catch(error){
@@ -28,7 +28,7 @@ const Activity = () => {
     }
 
     const handleDelete = (rid) => {
-        axios.delete(`http://localhost:3500/api/v1/activity/activity-register/delete/${rid}`)
+        axios.delete(`https://envinormentprotectionbackend.onrender.com/api/v1/activity/activity-register/delete/${rid}`)
           .then((response) => {
             getAllActivitie();
             console.log('Item deleted');

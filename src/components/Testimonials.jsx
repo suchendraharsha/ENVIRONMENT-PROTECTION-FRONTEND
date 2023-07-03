@@ -53,7 +53,7 @@ const Testimonials = () => {
     const allUserLikes = async()=>{
       try{
         let uId=auth.user.id;
-        const res = await axios.get(`http://localhost:3500/api/v1/like/all-user-likes/${uId}`);
+        const res = await axios.get(`https://envinormentprotectionbackend.onrender.com/api/v1/like/all-user-likes/${uId}`);
         
         console.log(res);
         setCommentLike(res?.data?.like);
@@ -80,7 +80,7 @@ const Testimonials = () => {
     },[])
     const getAllActivities =async()=>{
         try{
-            const res = await axios.get("http://localhost:3500/api/v1/activity/activity");
+            const res = await axios.get("https://envinormentprotectionbackend.onrender.com/api/v1/activity/activity");
             setActivities(res?.data?.activity);
             console.log(auth);            
         }catch(error){
@@ -93,7 +93,7 @@ const Testimonials = () => {
             setId(id);
             setShowComments(!showComments);
             console.log(showComments);
-            const res = await axios.get(`http://localhost:3500/api/v1/comment/comment/${id}`);
+            const res = await axios.get(`https://envinormentprotectionbackend.onrender.com/api/v1/comment/comment/${id}`);
             setComment(res?.data?.comment);
             setCommentOpen(false);
             console.log(res);
@@ -104,7 +104,7 @@ const Testimonials = () => {
     }
     console.log(showComments);
     const allComments=async()=>{
-      const res = await axios.get(`http://localhost:3500/api/v1/comment/all-comment`);
+      const res = await axios.get(`https://envinormentprotectionbackend.onrender.com/api/v1/comment/all-comment`);
       setFullComments(res?.data)
     }
 
@@ -117,7 +117,7 @@ const Testimonials = () => {
       const check= commentLike.find((commentId)=> commentId===comment);
       if(!check){
         try{
-          const res = await axios.post(`http://localhost:3500/api/v1/like/like`,{users:auth.user.id,comment:comment,thumbsup:1});
+          const res = await axios.post(`https://envinormentprotectionbackend.onrender.com/api/v1/like/like`,{users:auth.user.id,comment:comment,thumbsup:1});
           console.log(res.data.message);
           allLikes();
         }
@@ -127,8 +127,9 @@ const Testimonials = () => {
       }
       else{
         try{
-          const res = await axios.delete(`http://localhost:3500/api/v1/like/like/${check}/${auth.user.id}`);
+          const res = await axios.delete(`https://envinormentprotectionbackend.onrender.com/api/v1/like/like/${check}/${auth.user.id}`);
           allUserLikes();
+          allLikes();
   
         }
         catch(err){
@@ -139,13 +140,13 @@ const Testimonials = () => {
     }
     
     const allLikes = async()=>{
-      const res = await axios.get(`http://localhost:3500/api/v1/like/all-likes`);
+      const res = await axios.get(`https://envinormentprotectionbackend.onrender.com/api/v1/like/all-likes`);
       setFullLikes(res.data.like);
       console.log(fullLikes);
     }
 
     const allReplies=async(reid)=>{
-      const res = await axios.get(`http://localhost:3500/api/v1/reply/reply/${reid}`);
+      const res = await axios.get(`https://envinormentprotectionbackend.onrender.com/api/v1/reply/reply/${reid}`);
       setCommentIdReply(reid);
       console.log(res);
       setFullReplies(res?.data?.reply);
@@ -164,7 +165,7 @@ const Testimonials = () => {
             productData.append("email", email);
             productData.append("contact", contact);
         try{
-            const res = await axios.post("http://localhost:3500/api/v1/activity/activity-register",productData);
+            const res = await axios.post("https://envinormentprotectionbackend.onrender.com/api/v1/activity/activity-register",productData);
             if(res.data.success){
                 console.log(res.data.message);
             }
@@ -191,7 +192,7 @@ const Testimonials = () => {
         commentData.append("activity", activity);
         commentData.append("description",description); */
         try{
-            const res = await axios.post("http://localhost:3500/api/v1/comment/create-comment",{userId:auth.user.id,activity:aid,description});
+            const res = await axios.post("https://envinormentprotectionbackend.onrender.com/api/v1/comment/create-comment",{userId:auth.user.id,activity:aid,description});
             if(res.data.success){
                 console.log(res.data.message);
             }
@@ -212,7 +213,7 @@ const Testimonials = () => {
 
     const writeReply=async()=>{
         try{
-            const res = await axios.post("http://localhost:3500/api/v1/reply/reply",{users:auth.user.id,comment:commentIdReply,description:descriptionReply});
+            const res = await axios.post("https://envinormentprotectionbackend.onrender.com/api/v1/reply/reply",{users:auth.user.id,comment:commentIdReply,description:descriptionReply});
             if(res.data.success){
                 console.log(res.data.message);
             }
