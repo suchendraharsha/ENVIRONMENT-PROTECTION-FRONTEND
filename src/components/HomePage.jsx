@@ -16,7 +16,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useEffect } from 'react'
 
 const HomePage = () => {
@@ -225,7 +225,7 @@ In conclusion, water pollution is an urgent environmental concern with severe im
       </div>
       <div className="resources-section">
         <img src="https://tse1.mm.bing.net/th?id=OIP.7TYSfXt8V8qoXnTLsEetKQHaDa&pid=Api&P=0&h=180" alt="Resources" className="resources-image" data-aos="fade-up" />
-        <Link href="/resources" className="resources-link">Explore Resources</Link>
+        <NavLink to="/resources" className="resources-link">Explore Resources</NavLink>
       </div>
     </div>
 

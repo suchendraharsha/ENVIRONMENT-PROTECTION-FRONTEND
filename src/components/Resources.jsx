@@ -213,7 +213,7 @@ Some 829 000 people are estimated to die each year from diarrhoea as a result of
       </section>
 
       <section className="vaccination-section">
-        <h2 className="vaccination-heading" data-aos="fade">WAYS TO STOP WATER POLLUTION</h2>
+        <h2 className="vaccination-heading" data-aos="fade">WAYS TO STOP POLLUTION</h2>
         <div className="vaccination-video">
           <div id="player"></div>
           {/* <div id="placeholder-text">Click to play the video</div> */}

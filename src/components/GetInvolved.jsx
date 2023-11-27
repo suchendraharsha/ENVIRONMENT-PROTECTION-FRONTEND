@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios";
-import { useNavigate,useLocation } from 'react-router-dom';
+import { useNavigate,useLocation, NavLink } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import "../styles/AuthStyles.css"
 import Layout from '../layout/Layout';
@@ -134,9 +134,9 @@ const GetInvolved = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            REGISTER
-          </button>
+          <NavLink to="/"><button type="submit" className="btn btn-primary">REGISTER
+          </button></NavLink>
+            
         </form>
       </div>
     </Layout>
