@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios";
-import { useNavigate,useLocation, NavLink } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import "../styles/AuthStyles.css"
 import Layout from '../layout/Layout';
@@ -11,9 +11,10 @@ import emailjs from '@emailjs/browser';
 
 const GetInvolved = () => {
 
-    const form = useRef();
-    const [auth]=useAuth();
-  const [name,setName] = useState("");
+  const form = useRef();
+  const [auth] = useAuth();
+
+  /* const [name,setName] = useState(""); */
     const [useraId,setUseraId]= useState();
     const [email,setEmail]=useState();
     const [err,setErr]=useState(0);
@@ -31,7 +32,6 @@ const GetInvolved = () => {
     useEffect(()=>{
       setUseraId(userId);
       setActivity(aid);
-      setName(uname);
       setOtherPage(true);
     },[userId,aid])
     
@@ -50,7 +50,6 @@ const GetInvolved = () => {
           productData.append("contact", contact);
       try{
           const res = await axios.post("https://envinormentprotectionbackend.onrender.com/api/v1/activity/activity-register",productData);
-          
           if(res.data.success){
             setErr(0);
               console.log(res.data.message);
@@ -58,7 +57,7 @@ const GetInvolved = () => {
           else{
               console.log(res.data.message);
           }
-          emailjs.sendForm('service_pgj8xtx', 'template_jeg4omh', form.current, 'MUKPIvmtkFi1zw3AG')
+          emailjs.sendForm('service_3hgs8bs', 'template_egdvnj8', form.current, 'nUcv7KqJIhJ5RUjZg')
           .then((result) => {
               console.log(result.text);
           }, (error) => {
@@ -67,11 +66,11 @@ const GetInvolved = () => {
           navigate("/testimonials");
       } catch(err){
         if(err.response.status===404){
-         /*  console.log(res.data.message); */
-          setErr(1);
-          return
-        }
-          console.log(err.response.status);
+          /*  console.log(res.data.message); */
+           setErr(1);
+           return
+         }
+          console.log(err);
           console.log("something went wrong");
       }
 
@@ -85,7 +84,7 @@ const GetInvolved = () => {
           <p className={err?'alreg':''}>{auth?.user?.name} is already registered</p>
           <div className="mb-3">
               <input
-                name="name"
+                name="uname"
                 type="text"
                 /* value={useraId}
                 onChange={(e) => setUseraId(e.target.value)} */
@@ -134,9 +133,9 @@ const GetInvolved = () => {
               required
             />
           </div>
-          <NavLink to="/"><button type="submit" className="btn btn-primary">REGISTER
-          </button></NavLink>
-            
+          <button type="submit" className="btn btn-primary">
+            REGISTER
+          </button>
         </form>
       </div>
     </Layout>

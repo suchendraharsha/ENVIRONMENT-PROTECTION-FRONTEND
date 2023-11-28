@@ -16,6 +16,7 @@ const GetInvolvedNew = () => {
     const [activities,setActivities] = useState();
 
     const [auth] = useAuth();
+    console.log(auth.user.id);
     const location = useLocation();
 
     const handleChange = (event) => {
@@ -33,10 +34,11 @@ const GetInvolvedNew = () => {
   }
 
     const handleSubmit = async(e) =>{
-      setUserId(auth.user.id);
       e.preventDefault();
+      setUserId(auth?.user?.id);
+      console.log(userId);
       const productData = new FormData();
-          productData.append("userId", auth.user.id);
+          productData.append("userId", userId);
           productData.append("activity", activity);
           productData.append("email", email);
           productData.append("contact", contact);
@@ -101,9 +103,9 @@ const GetInvolvedNew = () => {
               required
             />
           </div>
-          <NavLink to="/"><button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             REGISTER
-          </button></NavLink>
+          </button>
         </form>
       </div>
     </Layout>

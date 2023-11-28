@@ -51,8 +51,8 @@ const Activity = () => {
         {
             field:"users",
             headerName:"Name",
-            flex:1,
-            valueGetter: (params) => params.row.users.name,
+            flex:0.5,
+            valueGetter: (params) => params.row.users?.name,
         },
         {
             field:"activityname",

@@ -38,7 +38,7 @@ const Register = () => {
             else{
                 toast.error(res.data.message);
             }
-            emailjs.sendForm('service_pgj8xtx', 'template_3rw202q', form.current, 'MUKPIvmtkFi1zw3AG')
+            emailjs.sendForm('service_u73ocld', 'template_mcqvhfj', form.current, 'vPK75gA9Ebzz3jI4d')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {

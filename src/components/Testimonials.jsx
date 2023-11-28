@@ -68,6 +68,7 @@ const Testimonials = () => {
     },[auth]);
 
     const handleInvolvement = (aid,aname,userId,uname)=>{
+      
       navigate("/get-involved",{state:{userId,aid,aname,uname}});
     }
     
